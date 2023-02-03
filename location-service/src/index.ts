@@ -30,13 +30,13 @@ const server = new grpc.Server();
 server.addService(locationProto.LocationService.service, {
   GetPlace: async (
     _: any,
-    callback: grpc.sendUnaryData<WithId<Document>[]>
+    callback: grpc.sendUnaryData<{ places: WithId<Document>[] }>
   ) => {
     try {
       const client = await connectToDb();
       const places = await getPlaces(client);
       await disconnectFromDb(client);
-      callback(null, places);
+      callback(null, { places });
     } catch (error) {
       console.error(error);
     }
