@@ -1,1 +1,1 @@
-# GPS-demo
+GPS Demo project
