@@ -1,0 +1,32 @@
+version: '3'
+services:
+  api:
+    build: ./api-gateway
+    ports:
+      - "3006:3006"
+    links:
+      - "auth"
+      - "location"
+    depends_on:
+      - "auth"
+      - "location"
+  auth: 
+    build: ./auth-service
+    ports:
+      - "3005:3005"
+    links:
+      - "mongodb"
+    depends_on:
+      - "mongodb"
+  location:
+    build: ./location-service
+    ports:
+      - "3004:3004"
+    links:
+      - "mongodb"
+    depends_on:
+      - "mongodb"
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
