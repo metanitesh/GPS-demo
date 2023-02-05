@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc -p . -w",
+    "build": "tsc",
     "start": "node dist/src/index.js",
     "dev": "ts-node src/index.ts",
+    "prod": "npm run build && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

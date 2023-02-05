@@ -10,6 +10,10 @@ services:
     depends_on:
       - "auth"
       - "location"
+    environment:
+      - APP_HOST:"127.0.0.1"
+      - LOCATION_SERVICE_HOST="location"
+      - AUTH_SERVICE_HOST="auth"
   auth: 
     build: ./auth-service
     ports:
@@ -18,6 +22,9 @@ services:
       - "mongodb"
     depends_on:
       - "mongodb"
+    environment:
+      - DB_HOST:"mongodb"
+      - APP_HOST:"127.0.0.1"
   location:
     build: ./location-service
     ports:
@@ -26,6 +33,9 @@ services:
       - "mongodb"
     depends_on:
       - "mongodb"
+    environment:
+      - DB_HOST:"mongodb"
+      - APP_HOST:"127.0.0.1"
   mongodb:
     image: mongo
     ports:

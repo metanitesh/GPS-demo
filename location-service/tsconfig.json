@@ -1,9 +1,7 @@
 {
-    "extends": "@tsconfig/node16/tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
-        "module": "NodeNext",
-        "watch": true,
+        "module": "NodeNext"
     },
     "include": ["src/**/*.ts"],
     "exclude": ["node_modules"],
