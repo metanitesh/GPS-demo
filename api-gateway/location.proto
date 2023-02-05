@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+message Location {
+  enum Type {
+    POINT = 0;
+  }
+
+  Type type = 1;
+  repeated double coordinates = 2;
+}
+
+message Place {
+  string _id = 1;
+  string name = 2;
+  Location loc = 3;
+}
+message Empty {}
+
+message Places {
+    repeated Place places = 1;
+  }
+  
+service LocationService {
+    rpc GetPlace (Empty) returns (Places) {}
+    rpc AddPlace (Place) returns (Empty) {}
+}
+
