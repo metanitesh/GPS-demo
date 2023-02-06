@@ -17,4 +17,4 @@ CMD [ "npm", "run", "prod"]
 
 
 # Expose the app's port to allow incoming traffic
-EXPOSE 3004 
+EXPOSE 3004

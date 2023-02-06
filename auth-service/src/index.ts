@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { secret, appHost, appPort } from "./../config";
+import { secret, appPort} from "./../config";
 import { connect, close, getUser, addUser } from "./db";
 
 interface IUserRequest extends express.Request {
@@ -109,6 +109,8 @@ app.get("/verify", verifyToken, (req: IUserRequest, res: Response) => {
 });
 app.post("/logout", verifyToken, logout);
 
-app.listen(appPort, appHost, () =>
-  console.log(`Listening on port ${appPort}...`)
+app.get("/", (req, res) => res.send("hello world"))
+
+app.listen(appPort, () =>
+  console.log(`Example app listening from ${appPort}`)
 );

@@ -5,5 +5,5 @@ dotenv.config();
 
 export const dbHost = process.env.DB_HOST || "localhost";
 export const dbPort = process.env.DB_PORT || "27017";
-export const appHost = process.env.APP_HOST || "localhost";
-export const appPort = process.env.APP_PORT || "3004";
+export const appHost = process.env.APP_HOST || "127.0.0.1";
+export const appPort = process.env.APP_PORT || 3004;

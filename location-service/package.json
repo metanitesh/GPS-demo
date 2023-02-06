@@ -7,9 +7,11 @@
     "build": "tsc",
     "dev": "ts-node src/index.ts",
     "start": "node dist/src/index.js",
-    "prod": "npm run build && npm start",
+    "copyProto": "cp  ./location.proto ./dist/src/location.proto",
+    "prod": "npm run build && npm run copyProto && npm start",
     "test": "jest"
   },
+
   "author": "",
   "license": "ISC",
   "dependencies": {

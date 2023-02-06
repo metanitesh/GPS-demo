@@ -1,42 +1,53 @@
 version: '3'
+
+networks:
+  emil-network:
+
 services:
   api:
     build: ./api-gateway
     ports:
-      - "3006:3006"
+      - 3006:3006
     links:
-      - "auth"
-      - "location"
+      - auth
+      - location
     depends_on:
-      - "auth"
-      - "location"
+      - auth
+      - location
     environment:
-      - APP_HOST:"127.0.0.1"
-      - LOCATION_SERVICE_HOST="location"
-      - AUTH_SERVICE_HOST="auth"
+      - LOCATION_SERVICE_HOST=location
+      - AUTH_SERVICE_HOST=auth
+    networks:
+      - emil-network
   auth: 
     build: ./auth-service
     ports:
-      - "3005:3005"
+      - 3005:3005
     links:
-      - "mongodb"
+      - mongodb
     depends_on:
-      - "mongodb"
+      - mongodb
     environment:
-      - DB_HOST:"mongodb"
-      - APP_HOST:"127.0.0.1"
+      - DB_HOST=mongodb
+    networks:
+      - emil-network
   location:
     build: ./location-service
     ports:
-      - "3004:3004"
+      - 3004:3004
     links:
-      - "mongodb"
+      - mongodb
     depends_on:
-      - "mongodb"
+      - mongodb
     environment:
-      - DB_HOST:"mongodb"
-      - APP_HOST:"127.0.0.1"
+      - DB_HOST=mongodb
+    networks:
+      - emil-network
   mongodb:
     image: mongo
     ports:
       - "27017:27017"
+    networks:
+      - emil-network
+    volumes:
+      - ./data:/data/db

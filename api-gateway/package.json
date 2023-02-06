@@ -7,7 +7,8 @@
     "build": "tsc",
     "start": "node dist/src/index.js",
     "dev": "ts-node src/index.ts",
-    "prod": "npm run build && npm start",
+    "copyProto": "cp  ./location.proto ./dist/src/location.proto",
+    "prod": "npm run build && npm run copyProto && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -3,6 +3,7 @@ import { secret, dbHost, dbPort } from "./../config";
 
 const uri = `mongodb://${dbHost}:${dbPort}`;
 
+console.log("mongodb url", uri)
 export const connect = async () => {
   const client = new MongoClient(uri, {});
   await client.connect();
