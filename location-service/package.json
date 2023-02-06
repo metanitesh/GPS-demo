@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc -p . && node dist/index.js",
+    "build": "tsc",
     "dev": "ts-node src/index.ts",
     "start": "node dist/src/index.js",
+    "copyProto": "cp  ./location.proto ./dist/src/location.proto",
+    "prod": "npm run build && npm run copyProto && npm start",
     "test": "jest"
   },
+
   "author": "",
   "license": "ISC",
   "dependencies": {

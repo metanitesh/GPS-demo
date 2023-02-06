@@ -1,9 +1,9 @@
 import { MongoClient } from "mongodb";
-import { dbName, dbCollectionLocation } from "./../config";
+import { dbName, dbCollectionLocation, dbHost, dbPort } from "./../config";
 import dotenv from "dotenv";
 dotenv.config();
 
-const uri = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}`;
+const uri = `mongodb://${dbHost}:${dbPort}`;
 
 export const connectToDb = async () => {
   const client = new MongoClient(uri, {});
