@@ -1,4 +1,4 @@
-import { appHost, appPort } from "./../config";
+import {  appPort } from "./../config";
 import express from "express";
 import { authRouter } from "./auth-client";
 import locationRouter from "./location-client";
@@ -9,6 +9,8 @@ app.use(express.json());
 app.use("/auth", authRouter);
 app.use("/locations", locationRouter);
 
-app.listen(appPort, appHost, () => {
-  console.log(`Example app listening on port ${appPort}`);
+app.get("/", (req, res) => res.send("hello world"))
+
+app.listen(appPort, () => {
+  console.log(`Example app listening on ${appPort}`);
 });

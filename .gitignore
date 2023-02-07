@@ -4,3 +4,4 @@
 location-service/dist/**
 auth-service/dist/**
 api-gateway/dist/**
+data

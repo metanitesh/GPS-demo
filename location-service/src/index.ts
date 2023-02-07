@@ -58,10 +58,10 @@ server.addService(locationProto.LocationService.service, {
 });
 
 server.bindAsync(
-  `${appHost}:${appPort}`,
+  `0.0.0.0:${appPort}`,
   grpc.ServerCredentials.createInsecure(),
-  (error: any, _: any) => {
-    console.log(`Server running at ${appHost}: ${appPort}`);
+  (error: any, port: any) => {
+    console.log(`Server running from port ${port}`);
     server.start();
 
     if (error) {
