@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+    - name: Check if in the right directory
+      run: pwd
+    - name: Check if in the right directory
+      run: ls
+    - name: Change to Auth Service Directory
+      run: cd auth-service
+    - name: Check if in the right directory
+      run: pwd
+    - name: Install Dependencies
+      working-directory: ./location-service
+      run: npm install
+    - name: Run Tests
+      working-directory: ./location-service
+      run: npm test
