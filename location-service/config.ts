@@ -1,7 +1,7 @@
 export const dbName = "emil";
 export const dbCollectionLocation = "location";
-import dotenv from "dotenv";
-dotenv.config();
+import * as dotenv from "dotenv";
+dotenv.config({ path: __dirname + "/.env" });
 
 export const dbHost = process.env.DB_HOST || "localhost";
 export const dbPort = process.env.DB_PORT || "27017";
