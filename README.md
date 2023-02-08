@@ -50,7 +50,7 @@ This will return a token in the following format:
 }`
 
 ### Add a Place
-To add a place, make a POST request to http://127.0.0.1:3006/locations/place with the following header and request body examples:
+To add a place, make a POST request to http://127.0.0.1:3006/locations/place with the following header and request body examples, use the token from login service:
 
 Header:
 `{ 
@@ -66,7 +66,7 @@ Request Body:
 }`
 
 ### Get places
-To get all places, make a GET request to http://127.0.0.1:3006/locations/placea with the following header:
+To get all places, make a GET request to http://127.0.0.1:3006/locations/places with the following header:
 
 Header:
 `{ 
