@@ -21,7 +21,7 @@ Alternatively, you can also run the following commands:
 
 
 
-## API gateway endpoing 
+## API gateway endpoints 
 
 To test the functionality of the demo project, import the [postman collections](https://github.com/metanitesh/GPS-demo/blob/add-readme/emil-api.json) All the endpoints are already configured with relevant request bodies.
 
