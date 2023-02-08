@@ -75,10 +75,12 @@ Header:
 
 
 ## CI Pipeline
-The demo project uses GitHub Actions to run builds and tests for the location service, this happens everytime a pull request is created
+The demo project uses GitHub Actions to run builds and tests for the location service, this happens everytime a pull request is created, https://github.com/metanitesh/GPS-demo/actions
 
 ## Tests
 The demo project includes tests for the location service.
+https://github.com/metanitesh/GPS-demo/blob/add-readme/location-service/src/db.spec.ts
+
 
 
 
