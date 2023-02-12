@@ -27,4 +27,21 @@ jobs:
     - name: Location service - Build
       working-directory: ./location-service
       run: npm run build
-    
+    - name: Build & Push Location Image
+      working-directory: ./location-service
+      run: |
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin 
+        docker image build -t metanitesh/location-service .
+        docker push metanitesh/location-service
+    - name: Build & Push Auth Image
+      working-directory: ./auth-service
+      run: |
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin 
+        docker image build -t metanitesh/auth-service .
+        docker push metanitesh/auth-service
+    - name: Build & Push API Gateway
+      working-directory: ./api-gateway
+      run: |
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin 
+        docker image build -t metanitesh/api-gateway .
+        docker push metanitesh/api-gateway
