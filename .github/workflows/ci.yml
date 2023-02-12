@@ -27,4 +27,3 @@ jobs:
     - name: Location service - Build
       working-directory: ./location-service
       run: npm run build
-    
